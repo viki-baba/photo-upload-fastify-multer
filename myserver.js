@@ -34,6 +34,16 @@ server.register(require('@fastify/static'), {
 })
     //https://github.com/fastify/fastify-static
 
+const PORT = (process.env.PORT || 5000);
+
+server.get('/', function (request, reply) {
+    var result = 'App is running';
+    reply.send(result);
+}).listen(PORT, function() {
+    console.log('App is running, server is listening on port ', PORT);
+})
+
+/*
 function fullUrl(req) {
     return url.format({
         protocol: req.protocol,
@@ -167,3 +177,4 @@ server.listen(process.env.PORT, function (err, address) {
     }
     // Server is now listening on ${address}
 })
+*/
